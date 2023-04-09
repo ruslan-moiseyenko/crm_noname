@@ -10,6 +10,10 @@ import { LoginPage } from "./routes/LoginPage";
 import { UserPage } from "./routes/UserPage";
 import "./firebase";
 
+// import dotenv from "dotenv";
+
+// dotenv.config();
+
 const router = createBrowserRouter([
   {
     path: "/",

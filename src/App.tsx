@@ -1,10 +1,18 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-
 import "./App.css";
 
+import { useAuth } from "./hooks/useAuth";
+
 function App() {
-  return <Navigate to="/login" replace={true} />;
+  const { isAuth } = useAuth();
+  console.log("isAuth: ", isAuth);
+  console.log("APP ", process.env);
+  return isAuth ? (
+    <Navigate to="/user" replace={true} />
+  ) : (
+    <Navigate to="/login" replace={true} />
+  );
 }
 
 export default App;
