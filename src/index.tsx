@@ -10,10 +10,6 @@ import { LoginPage } from "./routes/LoginPage";
 import { UserPage } from "./routes/UserPage";
 import "./firebase";
 
-// import dotenv from "dotenv";
-
-// dotenv.config();
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,9 +34,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

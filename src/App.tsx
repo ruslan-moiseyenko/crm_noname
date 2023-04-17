@@ -6,8 +6,7 @@ import { useAuth } from "./hooks/useAuth";
 
 function App() {
   const { isAuth } = useAuth();
-  console.log("isAuth: ", isAuth);
-  console.log("APP ", process.env);
+
   return isAuth ? (
     <Navigate to="/user" replace={true} />
   ) : (

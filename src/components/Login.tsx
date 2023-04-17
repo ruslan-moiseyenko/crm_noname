@@ -1,8 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { setUser } from "../store/slices/userSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
-import { Form } from "./Form";
+import { AuthForm } from "./AuthForm";
 import { useAppDispatch } from "../hooks/reduxHooks";
 
 const Login = () => {
@@ -13,7 +13,8 @@ const Login = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
+        // console.log(user);
+        // console.log(user.email);
         dispatch(
           setUser({
             email: user.email,
@@ -28,7 +29,7 @@ const Login = () => {
       });
   };
 
-  return <Form title="Login" handleClick={handleLogin} />;
+  return <AuthForm title="Login" handleClick={handleLogin} />;
 };
 
 export { Login };

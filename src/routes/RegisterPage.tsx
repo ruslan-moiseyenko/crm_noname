@@ -4,12 +4,15 @@ import { SignUp } from "../components/SignUp";
 
 export const RegisterPage = () => {
   return (
-    <>
-      <h1>This is Register Page</h1>
+    <div className="p-3 text-center">
+      <h1 className="mb-5">You can register here</h1>
       <SignUp />
       <p>
-        If you have an account, please <Link to="/login">login</Link>
+        If you have an account, please{" "}
+        <Link to="/login" style={{ color: "#212529" }}>
+          login
+        </Link>
       </p>
-    </>
+    </div>
   );
 };

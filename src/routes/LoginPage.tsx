@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
-import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
-import logoCrm from "../img/LogoCRM.png";
 import { Login } from "../components/Login";
 
 export const LoginPage = () => {
   return (
-    <>
+    <div className="p-3 text-center">
+      <h1 className="mb-5">Welcome to our CRM</h1>
       <Login />
-      <p>
-        You can <Link to="/register">register</Link>
-      </p>
-    </>
+      <div className="text-dark">
+        <Link to="/register" style={{ color: "#212529" }}>
+          Create an account
+        </Link>
+      </div>
+    </div>
   );
 };

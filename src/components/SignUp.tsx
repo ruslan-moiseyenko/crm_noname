@@ -1,21 +1,18 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { Form } from "./Form";
+import { AuthForm } from "./AuthForm";
 import { setUser } from "../store/slices/userSlice";
 import { useAppDispatch } from "../hooks/reduxHooks";
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  console.log("REGISTER");
 
   const auth = getAuth();
-  console.log(auth);
 
   const handleRegister = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -30,7 +27,7 @@ const SignUp = () => {
       });
   };
 
-  return <Form title="Register" handleClick={handleRegister} />;
+  return <AuthForm title="Register" handleClick={handleRegister} />;
 };
 
 export { SignUp };
