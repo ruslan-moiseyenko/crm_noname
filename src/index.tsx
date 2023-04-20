@@ -9,6 +9,7 @@ import { RegisterPage } from "./routes/RegisterPage";
 import { LoginPage } from "./routes/LoginPage";
 import { UserPage } from "./routes/UserPage";
 import "./firebase";
+import { ErrorPage } from "./routes/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -17,16 +18,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <RegisterPage />
+    element: <RegisterPage />,
+    errorElement: <ErrorPage />
   },
   {
     path: "/login",
-    element: <LoginPage />
+    element: <LoginPage />,
+    errorElement: <ErrorPage />
   },
   {
     path: "/user",
-    element: <UserPage />
+    element: <UserPage />,
+    errorElement: <ErrorPage />
   }
+  // {
+  //   path: "*",
+  //   element: <ErrorPage />
+  // }
 ]);
 
 const root = ReactDOM.createRoot(

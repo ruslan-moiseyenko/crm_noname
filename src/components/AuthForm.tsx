@@ -43,7 +43,7 @@ const AuthForm = ({ title, handleClick }: FormProps) => {
         </h2>
       </div>
 
-      <Form
+      {/* <Form
         style={{
           width: "400px",
           padding: "10px"
@@ -80,8 +80,8 @@ const AuthForm = ({ title, handleClick }: FormProps) => {
         >
           {title}
         </Button>
-        <SignInScreen />
-      </Form>
+      </Form> */}
+      <SignInScreen />
     </div>
   );
 };
