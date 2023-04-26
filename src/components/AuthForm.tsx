@@ -1,26 +1,11 @@
-import React, { useState, ChangeEvent } from "react";
+import React from "react";
 import { Button, Image } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 import logoCrm from "../img/LogoCRM.png";
 import SignInScreen from "./authMethods/FirebaseAuth ";
 
-type FormProps = {
-  title: string;
-  handleClick: (email: string, password: string) => void;
-};
-
-const AuthForm = ({ title, handleClick }: FormProps) => {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-  const handlePasChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-
+const AuthForm = () => {
   return (
     <div
       className="rounded border-0 shadow bg-light p-3 mb-3 mx-auto"
@@ -43,44 +28,6 @@ const AuthForm = ({ title, handleClick }: FormProps) => {
         </h2>
       </div>
 
-      {/* <Form
-        style={{
-          width: "400px",
-          padding: "10px"
-        }}
-        className="mx-auto rounded "
-      >
-        <Form.Group className="mb-3 " controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={handlePasChange}
-          />
-        </Form.Group>
-
-        <Button
-          className="rounded w-100"
-          variant="primary"
-          type="button"
-          onClick={() => handleClick(email, password)}
-        >
-          {title}
-        </Button>
-      </Form> */}
       <SignInScreen />
     </div>
   );

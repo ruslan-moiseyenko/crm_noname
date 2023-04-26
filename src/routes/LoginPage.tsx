@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Login } from "../components/Login";
 
 export const LoginPage = () => {
@@ -6,11 +6,11 @@ export const LoginPage = () => {
     <div className="p-3 text-center">
       <h1 className="mb-5">Welcome to our CRM</h1>
       <Login />
-      <div className="text-dark">
+      {/* <div className="text-dark">
         <Link to="/register" style={{ color: "#212529" }}>
           Create an account
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

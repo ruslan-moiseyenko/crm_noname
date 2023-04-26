@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "./store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { RegisterPage } from "./routes/RegisterPage";
 import { LoginPage } from "./routes/LoginPage";
 import { UserPage } from "./routes/UserPage";
 import "./firebase";
@@ -14,12 +14,14 @@ import { ErrorPage } from "./routes/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
-  },
-  {
-    path: "/register",
-    element: <RegisterPage />,
-    errorElement: <ErrorPage />
+    element: <App />,
+    children: [
+      {
+        path: "/user",
+        element: <UserPage />,
+        errorElement: <ErrorPage />
+      }
+    ]
   },
   {
     path: "/login",
@@ -27,14 +29,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    path: "/user",
-    element: <UserPage />,
-    errorElement: <ErrorPage />
+    path: "*",
+    element: <ErrorPage />
   }
-  // {
-  //   path: "*",
-  //   element: <ErrorPage />
-  // }
 ]);
 
 const root = ReactDOM.createRoot(
@@ -43,6 +40,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={router} />
+    </PersistGate>
   </Provider>
 );
